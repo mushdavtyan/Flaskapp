@@ -17,7 +17,6 @@ count = 0
 def callsleep(number):
     global count
     count += 1
-    color = 'orange'
     time.sleep(int(number) / 1000)
     return """<font color="green"><H1  ALIGN="Center">Kubernetes Load-Balancer check page</H1>
               <font color="green"><H4  ALIGN="Center">Call with sleeping time {} millisec. Running  count <H1  ALIGN="Center">{}</H1></H4>""".format(number, str(count))
