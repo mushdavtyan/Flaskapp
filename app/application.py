@@ -5,11 +5,14 @@
 # Version      Date           Info
 # 2.0          18-Apr-2020    Initial Version
 # ----------------------------------------------
-import time
+import time, socket
 from flask import Flask
+
+
 
 application = Flask(__name__)
 count = 0
+hostname = socket.gethostname()
 
 
 @application.route('/<int:number>')
@@ -24,8 +27,7 @@ def callsleep(number):
 
 @application.route("/stats")
 def index():
-    return """<font color="green"><H1  ALIGN="Center">Kubernetes Load-Balancer check page</H1>
-              <font color="green"><H4  ALIGN="Center">Total calls <H1  ALIGN="Center">{}</H1></H4>""".format(str(count))
+    return '{} {}'.format(str(hostname), str(count))
 
 
 #--------Main------------------
