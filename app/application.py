@@ -3,7 +3,7 @@
 # ------------------------------------------------
 # Program by Mushegh Davtyan
 # Version      Date           Info
-# 2.0          18-Apr-2020    Initial Version
+# 3.0          21-May-2020    Stable Version
 # ----------------------------------------------
 import time, socket
 from flask import Flask
@@ -15,19 +15,24 @@ count = 0
 hostname = socket.gethostname()
 
 
+
 @application.route('/<int:number>')
 # Response to integer values
 def callsleep(number):
+    sl = number * 0.001
     global count
     count += 1
-    time.sleep(int(number) / 1000)
-    return """<font color="green"><H1  ALIGN="Center">Kubernetes Load-Balancer check page</H1>
-              <font color="green"><H4  ALIGN="Center">Call with sleeping time {} millisec. Running  count <H1  ALIGN="Center">{}</H1></H4>""".format(number, str(count))
+    time.sleep(sl)
+    if sl >= 1:
+        return """host - {}, response-time- {} s,  current count - {}""".format(str(hostname), str(sl), str(count))
+    else:
+        return """host - {}, response-time- {} ms,  current count - {}""".format(str(hostname), str(sl), str(count))
 
 
-@application.route("/stats")
+@application.route("/statistics")
 def index():
-    return '{} {}'.format(str(hostname), str(count))
+    return 'hostname - {}, Total running counts  is  {}'.format(str(hostname),  str(count))
+   
 
 
 #--------Main------------------

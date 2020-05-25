@@ -1,6 +1,6 @@
 version: '2'
 services:
-    myflask:
+    flask800:
         build: .
         ports:
         - "80:80"

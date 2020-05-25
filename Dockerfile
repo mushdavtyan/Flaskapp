@@ -10,7 +10,9 @@ RUN apt-get update && apt-get install -y apache2 \
     python \
     python-dev\
     python-pip \
-    vim \
+	nano\
+	mc\
+        htop\
  && apt-get clean \
  && apt-get autoremove \
  && rm -rf /var/lib/apt/lists/*
@@ -27,12 +29,13 @@ RUN a2enmod headers
 RUN a2enmod proxy
 RUN a2enmod proxy_http
 
+
+
 RUN a2dissite 000-default.conf
 RUN a2ensite apache-flask.conf
 
+
 EXPOSE 80
 
-CMD service apache2 stop
-CMD service apache2 start
-#CMD  /usr/sbin/apache2ctl -D FOREGROUND
-CMD  FLASK_APP=/var/www/application.py flask run
+
+ENTRYPOINT  service apache2 start && FLASK_APP=/var/www/application.py flask run
