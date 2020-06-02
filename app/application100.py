@@ -3,7 +3,7 @@
 # ------------------------------------------------
 # Program by Mushegh Davtyan
 # Version      Date           Info
-# 3.5          21-May-2020    Stable Version
+# 3.6          02-Jun-2020    Stable Version
 # ----------------------------------------------
 import time, socket
 from flask import Flask
@@ -35,6 +35,16 @@ def index():
         return 'hostname - {}, Total running counts with delay of  time {}s is  {}'.format(str(hostname), number, str(count))
     else:
         return 'hostname - {}, Total running counts with delay of time {}ms is  {}'.format(str(hostname), number, str(count))        
+
+@application.route("/stats100")
+def index():
+    global number
+    global count
+    sl = number * 0.001
+    if sl >= 1:
+        return 'hostname - {}, Total running counts with delay of  time {}s is  {}'.format(str(hostname), number, str(count))
+    else:
+        return 'hostname - {}, Total running counts with delay of time {}ms is  {}'.format(str(hostname), number, str(count))
 
 
 #--------Main------------------

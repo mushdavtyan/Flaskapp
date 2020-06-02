@@ -13,13 +13,19 @@ RUN apt-get update && apt-get install -y apache2 \
 	nano\
 	mc\
         htop\
+        curl\
  && apt-get clean \
  && apt-get autoremove \
  && rm -rf /var/lib/apt/lists/*
 
 # Copy over and install the requirements
 COPY ./app/requirements.txt /var/www/requirements.txt
+#######################################################################
+##            change only this line to copy application              ##
+#######################################################################
 COPY ./app/application.py /var/www/application.py
+
+
 RUN pip install -r /var/www/requirements.txt
 
 # Copy over the apache configuration file and enable the site

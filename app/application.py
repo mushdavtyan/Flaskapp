@@ -3,7 +3,7 @@
 # ------------------------------------------------
 # Program by Mushegh Davtyan
 # Version      Date           Info
-# 3.5          21-May-2020    Stable Version
+# 3.6          02-Jun-2020    Stable Version
 # ----------------------------------------------
 import time, socket
 from flask import Flask
