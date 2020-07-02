@@ -3,7 +3,7 @@
 # ------------------------------------------------
 # Program by Mushegh Davtyan
 # Version      Date           Info
-# 3.6          02-Jun-2020    Stable Version
+# 4.1          02-Jul-2020    Stable Version
 # ----------------------------------------------
 import time, socket
 from flask import Flask
@@ -39,7 +39,7 @@ def index():
 
 
 @application.route("/stats800")
-def index():
+def index800():
     global number
     global count
     sl = number * 0.001

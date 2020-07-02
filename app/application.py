@@ -3,7 +3,7 @@
 # ------------------------------------------------
 # Program by Mushegh Davtyan
 # Version      Date           Info
-# 3.6          02-Jun-2020    Stable Version
+# 4.1          02-Jul-2020    Stable Version
 # ----------------------------------------------
 import time, socket
 from flask import Flask
@@ -16,7 +16,7 @@ hostname = socket.gethostname()
 
 
 
-@application.route('/<int:number>')
+@application.route('/static<int:number>')
 # Response to integer values
 def callsleep(number):
     sl = number * 0.001

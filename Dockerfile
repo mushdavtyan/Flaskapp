@@ -23,7 +23,7 @@ COPY ./app/requirements.txt /var/www/requirements.txt
 #######################################################################
 ##            change only this line to copy application              ##
 #######################################################################
-COPY ./app/application.py /var/www/application.py
+COPY ./app/application800.py /var/www/application.py
 
 
 RUN pip install -r /var/www/requirements.txt
